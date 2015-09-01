@@ -25,7 +25,7 @@ var bool = computed.bool;
  * @uses WithLoggerMixin
  * @constructor
  */
-export default DS.RESTAdapter.extend(Ember.Evented, WithLoggerMixin, {
+export default DS.JSONAPIAdapter.extend(Ember.Evented, WithLoggerMixin, {
   /**
    * @inheritDoc
    */
