@@ -32,7 +32,7 @@ function isAlive(obj) {
  * @uses WithLoggerMixin
  * @constructor
  */
-var SailsSocketService = Ember.Object.extend(Ember.Evented, WithLoggerMixin, {
+var SailsSocketService = Ember.Service.extend(Ember.Evented, WithLoggerMixin, {
   /**
    * Holds our sails socket
    * @since 0.0.4
