@@ -123,7 +123,11 @@ export default SailsBaseAdapter.extend({
     if (!record.id && message.id) {
       record.id = message.id;
     }
-    payload[pluralize(camelize(type.modelName))] = [record];
+    payload['id'] = record.id;
+    payload['type'] = type.modelName;
+    delete record.id;
+    payload['attributes'] = record;
+
     store.pushPayload(type.modelName, payload);
   },
 
