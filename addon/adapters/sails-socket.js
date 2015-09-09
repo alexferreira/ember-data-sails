@@ -4,7 +4,6 @@ import SailsBaseAdapter from './sails-base';
 var EmberString = Ember.String;
 var fmt = EmberString.fmt;
 var camelize = EmberString.camelize;
-var pluralize = EmberString.pluralize;
 var run = Ember.run;
 var bind = run.bind;
 var debounce = run.debounce;
@@ -174,7 +173,7 @@ export default SailsBaseAdapter.extend({
     var socket = this.sailsSocket;
     if (socket.listenFor(eventName, true)) {
       this.notice(fmt('setting up adapter to listen for `%@` messages', model));
-      store = this.container.lookup('store:main');
+      store = this.container.lookup('service:store');
       type = store.modelFor(model);
       socket.on(eventName + '.created', bind(this, '_handleSocketRecordCreated', store, type));
       socket.on(eventName + '.updated', bind(this, '_handleSocketRecordUpdated', store, type));
